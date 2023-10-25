@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="org.zerock.board.BoardMapper">
+ 	<!-- 게시물 목록 보기 -->
+ 	<select id="getList" resultType="org.zerock.board.command.BoardVO">
+ 		select * from tbl_board order by num desc
+ 	</select>
+ 	
+ 	<!-- 게시물 등록 -->
+ 	<select id="insertBoard">
+ 		insert into tbl_board(num, title, content, writer, regdate, updatedate)
+ 			values(tbl_board_seq.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate)
+ 	</select>
+ 	
+ 	<!-- 게시물 상세보기 -->
+ 	<select id="getContent" parameterType="java.lang.String" 
+ 		resultType="org.zerock.board.command.BoardVO">
+ 		select * from tbl_board where num = #{num} 
+ 	</select>
+ 	
+ 	<!-- 게시물 수정 -->
+	<update id="updateBoard" keyProperty="true" 
+		parameterType="org.zerock.board.command.BoardVO">
+		update tbl_board set 
+			content=#{content},
+			title=#{title},
+			writer=#{writer},
+			updatedate=sysdate
+			
+			where num = #{num}
+	</update> 	
+ 	
+ 	<!-- 게시물 삭제 -->
+ 	<delete id="deleteBoard" parameterType="java.lang.String">
+ 		delete from tbl_board where num = #{num}
+ 	</delete>
+ </mapper>
