@@ -3,6 +3,7 @@ package org.zerock.board.mapper;
 import java.util.List;
 
 import org.zerock.board.command.BoardVO;
+import org.zerock.board.command.Criteria;
 
 public interface BoardMapper {
 
@@ -20,5 +21,11 @@ public interface BoardMapper {
 	
 	//게시판 글 상세 보기
 	public BoardVO getContent(String num); 
+	
+	// 페이징 쿼리
+	public List<BoardVO> pagingList(Criteria cri);
+	
+	//전체 게시글 데이터 수
+	public int getTotal();
 	
 }
