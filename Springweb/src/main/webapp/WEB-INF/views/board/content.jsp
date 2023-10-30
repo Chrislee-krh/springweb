@@ -46,8 +46,8 @@
             <input class="form-control" value="${board.writer }" readonly="readonly">
           </div>
           
-          <button type="button" class="btn btn-primary" onclick="location.href='modify?num=${board.num}'">변경</button>
-          <button type="button" class="btn btn-dark" onclick="location.href='list'">목록</button>
+          <button type="button" class="btn btn-primary" onclick="location.href='modify?num=${board.num}&pageNum=${cri.pageNum}'">변경</button>
+          <button type="button" class="btn btn-dark" onclick="location.href='list?pageNum=${cri.pageNum}'">목록</button>
       </div>
       <!--  end card-body -->
     </div>

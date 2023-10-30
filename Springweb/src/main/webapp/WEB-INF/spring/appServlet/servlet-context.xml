@@ -23,6 +23,6 @@
 	
 	<context:component-scan base-package="org.zerock.controller" />
 	<context:component-scan base-package="org.zerock.board.service"/>
-	
+	<context:component-scan base-package="org.zerock.member.service"/>
 	
 </beans:beans>

@@ -49,7 +49,7 @@
           
           <button type="submit" class="btn btn-primary" >변경</button>
           <button type="button" class="btn btn-secondary" onclick="location.href='delete?num=${board.num}'">삭제</button>
-          <button type="button" class="btn btn-dark" onclick="location.href='list'">목록</button>
+          <button type="button" class="btn btn-dark" onclick="location.href='list?pageNum=${cri.pageNum}'">목록</button>
         </form>
 
 

@@ -37,7 +37,12 @@
 							<tr>
 								<td>${board.num }</td>             <!-- num.index가능 -->
 								<td>
-									<a href="content?num=${board.num}"> ${board.title } </a>
+								<!-- 7. 조회 페이지 이동 -->
+								<!-- 상세 페이지 이동 후 목록 화면 이동시, 기존 페이지를 유지 못함.
+									유지하려면, 페이지 이동시 pageNum 값을 가지고 다녀야 한다.
+									content로 -->
+								
+									<a href="content?num=${board.num}&pageNum=${pageMaker.cri.pageNum}"> ${board.title } </a>
 								</td>
 								<td>${board.writer }</td>
 								<td>
@@ -53,17 +58,27 @@
 					</table>
 					<!-- 페이징 처리 부분 부트스트랩 참고 -->
 					<ul class="pagination justify-content-center">
-                       	 			<li class="page-item">
-							<a class="page-link" href="##############">Previous</a>
-						</li>
-					   
-					    <li class="page-item">
-					    	<a class="page-link" href="##############">1</a>
+                       	<!-- 1. 이전 버튼 -->
+                       	<c:if test="${pageMaker.prev }">
+	                       	<li class="page-item">
+								<a class="page-link" href="list?pageNum=${pageMaker.startPage-1 }">Previous</a>
+							</li>
+						</c:if>
+					   <!-- 3. 페이지 번호 -->
+					   <c:forEach var="page" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+					   <!-- 페이지별 나오게 값을 전달하면서 동시에 어떤 페이지인지 표시할 수 있게 active 활성 -->
+					    
+					    <li class="page-item ${pageMaker.cri.pageNum == page?'active':'' }">
+					   		<a class="page-link" href="list?pageNum=${page }">${page }</a>
+					    	<%-- <a class="page-link" href="list?pageNum=${page }">${page }</a> --%>
 					    </li>
-					   
+					    </c:forEach>
+					   <!-- 2. 다음 버튼 활성화 여부 -->
+					   <c:if test="${pageMaker.next }">
 					    <li class="page-item">
-					      <a class="page-link" href="##############">Next</a>
+					      <a class="page-link" href="list?pageNum=${pageMaker.endPage+1 }">Next</a>
 					    </li>
+					   </c:if>
 				    </ul>
 					<!-- 페이징 처리 끝 -->
 				</div>

@@ -38,5 +38,6 @@
 		
 	<!-- mybatis의 테스트 mapper -->
 	<mybatis-spring:scan base-package="org.zerock.board.mapper"/>
+	<mybatis-spring:scan base-package="org.zerock.member.mapper"/>
 	
 </beans>

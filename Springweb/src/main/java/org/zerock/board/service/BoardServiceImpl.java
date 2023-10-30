@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.board.command.BoardVO;
+import org.zerock.board.command.Criteria;
 import org.zerock.board.mapper.BoardMapper;
 
 @Service("boardService")
@@ -40,4 +41,16 @@ public class BoardServiceImpl implements BoardService {
 		mapper.deleteBoard(num);
 	}
 
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		return mapper.pagingList(cri);
+	}
+
+	@Override
+	public int getTotal() {
+		return mapper.getTotal();
+	}
+
+	
+	
 }

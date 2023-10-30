@@ -65,8 +65,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login</h6>
-            <a class="collapse-item" href="############################">회원가입</a>
-            <a class="collapse-item" href="############################">로그인</a>
+            <a class="collapse-item" href="/member/join">회원가입</a>
+            <a class="collapse-item" href="/member/login">로그인</a>
             
           </div>
         </div>
@@ -74,14 +74,14 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="############################">
+        <a class="nav-link" href="/board/list">
           <i class="fas fa-fw fa-table"></i>
           <span>공지사항 게시판</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item active">
-        <a class="nav-link" href="############################">
+        <a class="nav-link" href="/board/register">
           <i class="fas fa-fw fa-table"></i>
           <span>공지사항 등록</span></a>
       </li>
@@ -131,7 +131,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">로그인이름을 입력하세요</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">${user_id } </span>
                 <img class="img-profile rounded-circle" src="${pageContext.request.contextPath }/resources/img/user.png">
               </a>
               <!-- Dropdown - User Information -->

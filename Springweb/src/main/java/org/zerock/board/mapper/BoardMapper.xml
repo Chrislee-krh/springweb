@@ -43,14 +43,15 @@
  		select count(*) from tbl_board
  	</select>
  	
- 	<!-- 페이징 쿼리 -->
-	<select id="pagingList"
-		resultType="org.zerock.board.command.BoardVO"
-		parameterType="org.zerock.board.command.Criteria">
-		select * from 
-		(select rownum as rnum, tbl_board.* from tbl_board 
-		where rownum &lt;=#{pageEnd} order by num desc) --게시글 끝
-		where #{pageStart} &lt;=rnum
-	</select>
+ 	   <!-- 페이징 쿼리 -->
+   <select id="pagingList"
+      resultType="org.zerock.board.command.BoardVO"
+      parameterType="org.zerock.board.command.Criteria">
+      select * from 
+         (select rownum as rnum, B.* from 
+            (select * from tbl_board order by num desc) B  
+         where rownum &lt;= #{pageEnd}) 
+      where #{pageStart} &lt;= rnum 
+   </select>
 	 	
  </mapper>

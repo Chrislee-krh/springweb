@@ -21,7 +21,7 @@ public class PageVO {
 		
 		//endPage
 		//공식: (int)Math.ceil(페이지번호/(double)한 번에 보여질 페이지 수)* 한번에 보여질 페이지 수
-		this.endPage = (int)Math.ceil((cri.getPageNum()/(double)10)*10);
+		this.endPage = (int)Math.ceil(cri.getPageNum()/(double)10)*10;
 		//startPage
 		//공식: endPage - 한 번에 보여질 페이지 개수 +1
 		this.startPage = endPage-10+1;
